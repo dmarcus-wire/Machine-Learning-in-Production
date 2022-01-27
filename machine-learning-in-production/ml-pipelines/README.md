@@ -5,7 +5,11 @@ Step
 	- Component
 
 1. Data Ingestestion 
-        - ExampleGen 
+        - ExampleGen
+1. Data Inspection
+	- dataset_metadata.DatasetMetadata 
+1. Data Preprocessing
+	- 
 1. Data Validation 
         - Tensorflow Data Validation (TFDV descriptive statistics at scale) 
         - StatisticsGen (generates statistics for data) 

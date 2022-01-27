@@ -100,3 +100,12 @@ Intuitive Exploration of highly dimensional data.
 - canny filters
 - sobel filters
 - photometric distortions
+
+# References
+1. Feature engineering https://developers.google.com/machine-learning/crash-course/representation/feature-engineering
+1. Feature engineering techniques: https://www.commonlounge.com/discussion/3ce75d036e924c70ab7e47f534ec40fc/history
+1. Facets visualizations https://pair-code.github.io/facets/
+1. Embedding Projector http://projector.tensorflow.org/
+1. Feature crosses https://developers.google.com/machine-learning/crash-course/feature-crosses/encoding-nonlinearity
+1. TFX https://www.tensorflow.org/tfx/guide#tfx_pipelines
+1. tf.Transform https://ai.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
