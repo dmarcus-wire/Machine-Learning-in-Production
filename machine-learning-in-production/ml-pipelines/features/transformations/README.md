@@ -90,6 +90,20 @@ Fed to **training**
 1. Dimensionality Reduction (pca)
 
 ```
+# basic imports for transform
+import tensorflow as tf
+# for deploy, transform uses beam to distrubte processing across a cluster
+# for dev, beam also works as 'direct runner' without cluster
+import apache_beam as beam
+# helps with io in different formats
+import apache_beam.io.iobase
+
+import tensorflow_transform as tft
+# transform has beam module to work with separately
+import tensorflow_transform.beam as tft_beam
+```
+
+```
 def preprocesssing_fn(inputs)
 
 for key in DENSE_FLOAT_FEATURE_KEYS:
