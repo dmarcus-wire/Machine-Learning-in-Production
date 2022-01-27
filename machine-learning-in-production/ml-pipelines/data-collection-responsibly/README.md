@@ -19,3 +19,14 @@ ML Systems can fail users in a lot of different ways and we need to strike a bal
 - Harm by disadvantage is where a system will infer disadvantageous associations between different demographic characteristics and the user behaviors around that. 
 
 "Fairness is important and you should really commit to it from the beginning."
+
+## ML systems can apmplify bias
+To reduce bias, you need accurate labels.
+1. automated systems
+	- 
+1. human raters "Raters"
+	- could be generalists adding labels using crowd sourcing tools
+	- could be experts diagnosing xrays
+	- users can also provide feedback
+
+Data freshness needs to be considered to manage collection responsibly

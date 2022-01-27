@@ -45,6 +45,7 @@ Lifecycle and components included with TFX on pip install
 1. Data Ingestestion
 	- ExampleGen
 1. Data Validation
+	- Tensorflow Data Validation (TFDV descriptive statistics at scale)
 	- StatisticsGen (generates statistics for data)
 	- SchemaGen (data schema)
 	- Example Validator (looks for problems in data)
@@ -69,6 +70,17 @@ Lifecycle and components included with TFX on pip install
 (a Metadata Store underlines the entire pipeline)
 
 The sequence of components are designed for scalable high performance Machine Learning tasks.
+
+# References
+1. Announcing the CD Foundation MLOps SIG https://cd.foundation/blog/2020/02/11/announcing-the-cd-foundation-mlops-sig/
+1. Software 2.0 https://karpathy.medium.com/software-2-0-a64152b37c35
+1. Runner app https://pair.withgoogle.com/chapter/data-collection/
+1. Rules of Machine Learning https://developers.google.com/machine-learning/guides/rules-of-ml
+1. Bias in datasets https://ai.googleblog.com/2018/09/introducing-inclusive-images-competition.html
+1. Logstash https://www.elastic.co/logstash/
+1. Fluentd https://www.fluentd.org/
+1. TFDV https://blog.tensorflow.org/2018/09/introducing-tensorflow-data-validation.html
+
 
 # Takeaway
 The key points here, first of all, Production ML Pipelines are more than just ML code. They're ML development and software development and a formalized process for running that sequence of tasks end to end, in a maintainable and scalable way. 
