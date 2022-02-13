@@ -11,6 +11,7 @@ Automate labelling at the expense of some inaccuracies
 - infer labels for unlabeled data from human labeled classes
 - based on assumption that different label classes will cluster or have some structure
 - can boost accuracy
+- using small amount of labeled data boosts model accuracy  
 - **label propagation** is an algorithm that applies labels to unlabeled records
     - based on similarity
     - **graph based label propagation** 'similarity is one way
@@ -21,6 +22,7 @@ intelligently sample your data
 - selects unlabeled points that would be most informative for a moddel
 - imbalanced data set, helps selecting rare classes for training
 - think of Healthcare
+- select most important examples to label  
 - selects labeled examples that will best help model learn
 
 1. start with unlabeled data
@@ -43,6 +45,7 @@ Other algs:
 ## Weak supervision with Snorkel
 
 leveraging higher-level and noisier input from SMEs
+use heuristics to label
 learn a generative model that determines a relevence of sources
 
 1. unlabeled data without ground truth
