@@ -7,6 +7,15 @@ Example: classify sequences of accelerometer data recorded by sensors on smartph
 
 ## Human Activity Recognition (HAR)
 
-- require segmentation operators
+- require segmentation operators (like windowing for weather data)
 - inertial data from wearables fluctates greatly overtime
-- features extraction, validation, 
+- features extraction, validation, etc.
+- segmentated data should be transformed for modeling
+    - spectograms (commonly used) extracting features using intensity
+    - normalization and encoding
+    - multichannel
+    - Fourier transform
+
+Wireless Sensors Work with Human Activity Recognition Dataset (WISDM)
+use tf.data.Dataset.window() to convert time series data to depend on past observations
+
