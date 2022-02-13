@@ -109,3 +109,6 @@ Intuitive Exploration of highly dimensional data.
 1. Feature crosses https://developers.google.com/machine-learning/crash-course/feature-crosses/encoding-nonlinearity
 1. TFX https://www.tensorflow.org/tfx/guide#tfx_pipelines
 1. tf.Transform https://ai.googleblog.com/2017/02/preprocessing-for-machine-learning-with.html
+1. Feast https://cloud.google.com/blog/products/ai-machine-learning/introducing-feast-an-open-source-feature-store-for-machine-learning
+1. Feast https://github.com/feast-dev/feast
+1. Feast https://www.gojek.io/blog/feast-bridging-ml-models-and-data

@@ -80,7 +80,8 @@ The sequence of components are designed for scalable high performance Machine Le
 1. Logstash https://www.elastic.co/logstash/
 1. Fluentd https://www.fluentd.org/
 1. TFDV https://blog.tensorflow.org/2018/09/introducing-tensorflow-data-validation.html
-
-
+1. Data Versioning https://dvc.org/
+1. GitHub Large Files https://git-lfs.github.com/
+1. ML Metadata https://www.tensorflow.org/tfx/guide/mlmd#data_model & https://www.tensorflow.org/tfx/guide/understanding_custom_components
 # Takeaway
 The key points here, first of all, Production ML Pipelines are more than just ML code. They're ML development and software development and a formalized process for running that sequence of tasks end to end, in a maintainable and scalable way. 
