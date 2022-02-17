@@ -1,5 +1,7 @@
 # Hyperparameter Tuning
 
+Or Hypertuning
+
 ## Neural Architecture Search (NAS) 
 - tecnique for automating design of artificial neural networks
 - helps to find optimal architecture
