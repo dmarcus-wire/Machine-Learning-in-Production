@@ -49,15 +49,49 @@ There's an increasing demand for sophisticated AI enabled services like image an
 For example, these graphs show accuracy and latency trade-offs for some common image classification models. One example of models optimized for mobile devices are MobileNets, which are optimized for mobile vision applications. 
 
 ## Benefits of quantization
+assuming hardware allows lower bit computation from 32 bit float to 8 bit
 1. faster compute
 1. lower memory bandwidth
 1. low power consumption
 1. supports CPU, DSP, NPUs
 
-## what does it affect
-1. static values parameters
-1. dynamic values activations 
-1. computation, transformations
+## what does quantization affect in the model
+1. static values (parameters)
+1. dynamic values (activations) 
+1. computation (transformations)
 1. impact models accuracy (-), rare (+)
+    - difficult to predict
+    - undefined effects of ML interpretability
+    
+Tradeoff = accuracy versus size
+Tradeoff = accuracy versus latency
+
+! IMPORTANT to profile and benchmark your model to measure performance differences
 
 Depending on the task, you will need to make a trade-off between model accuracy and model complexity. If your task requires high accuracy, then you may need a large and complex model. For tasks that require less precision, it's better to use a smaller, less complex model. Because they not only use less disk space in memory, but they are also generally faster and more energy-efficient.
+
+## Why Quantize?
+- NN have many params that take up space
+- Shrink model files size
+- Reduce compute resources
+- Make models run faster and use less power with low precision
+
+## Post training quantization
+knowing if you will run on GPU, edge TPU or CPU is important to determine right scaling parameters for quanitization
+1. during training
+   - Quantization aware training
+1. after training
+    - reduced precision representation
+    - incur small loss in accuracy
+        - you can do quanitization-aware training during training to improve accuracy
+    - techniques
+        - dynamic range quantization (4x smaller, 2x speedup, CPU)
+        - full integer (4x smaller, 3x+ speedup, CPU)
+        - float16 (2x smaller, GPU accleration)
+
+# Quantization Aware training (QAT)
+first build a model
+retrain using quanitization toolkit API
+insert fake quantization nodes in the forward pass in actual inference
+goal is to fine-tune weights for minimizing precision loss
+model learn parameters more robust for quantization
