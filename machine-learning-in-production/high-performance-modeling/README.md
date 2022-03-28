@@ -39,6 +39,26 @@ each worker communicates all changes to workers "synchronize" after each batch
 - small changes in code required
 - tensorflow tf.distrubite.strategy library provides custom training loop (eager, graph, tf.function)
 
+### Multi-worker strategies with TensorFlow
+TF_CONFIG variable for training on multiple machines
+1. Task
+1. cluster
+
+#### Task
+- provides information about the current task
+- different on each worker
+- specify the 'type' and 'index'
+
+#### Cluster
+- same for all workers
+- provides the same information about the training cluster
+- with a 'multiworkermirrorstrategy' there is one worker that takes more resp. as a checkpoint (writes to TensorBoard)
+- chief worker has index=0
+
+#### Training Strategy
+1. synchronous - steps of training are synced across the workers and replicas (recommed 'MultiWorkerMirroredStrategy')
+1. asynchronous - training steps are not strictly synced
+
 ### strategies with tensorflow
 - one device strategy
     - single device, no distribution
@@ -59,8 +79,26 @@ each worker communicates all changes to workers "synchronize" after each batch
 - central storage strategy
 - TPU strategy
 
+source: https://www.tensorflow.org/guide/distributed_training 
+
 # Model parallelism
 models are too large to fit on single ddevice, they can be divided into partitions
 assigned to different partitions to different accelerators
 
+# High Performance Modeling
+High performance ingestion
+Accelerators are a key part of high-performance modeling, training, and inference, but accelerators are also expensive, so it's important to use them efficiently. 
+That means keeping them busy, which requires you to supply them with enough data fast enough. 
+That's why high-performance ingestion is important in high-performance modeling
+
+## Input pipelines
+Why? data can't fit into memory and sometimes, CPUs underutilized
+important for:
+training pipelines
+inference pipelines
+
+tf.data can be used for an input pipeline (think ETL process)
+1. extract (local HDD/SSD, remote GCS/HDFS)
+2. Shuffling & batching (decompress, augment, vectorization)
+3. load (load data to accelerator)
 
