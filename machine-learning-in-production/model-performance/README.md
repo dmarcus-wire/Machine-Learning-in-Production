@@ -69,3 +69,9 @@ TFMA visualizes the metrics computed for a single model over multiple versions o
 TFMA uses Apache Beam to do a full pass over the evil dataset
 Allows for accurate calculation of metrics
 Scales up to massive evaluation dataset since Beam pipelines can be run using distributed processing back ends. 
+
+## TFMA can render in notebooks
+
+# Resources
+1. https://blog.tensorflow.org/2018/03/introducing-tensorflow-model-analysis.html
+2. https://www.tensorflow.org/tfx/model_analysis/architecture
