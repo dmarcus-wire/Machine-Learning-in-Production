@@ -40,6 +40,7 @@ Sanity Test
 
 ## Sensitivity Analysis
 Security / MLOps
+- Sensitivity analysis helps with understanding a model by examining the impact that each feature has on the model’s prediction. In sensitivity analysis we experiment by changing a feature value while holding the other features constant, and observe the model results. 
 - Sensitivity analysis is an important way to evaluate your model's performance, including its vulnerability to adversarial attacks.Sensitivity analysis is an important way to evaluate your model's performance, including its vulnerability to adversarial attacks.
 - Sensitivity analysis helps you understand your model by examining the impact that each feature has on your model's prediction.
 - In sensitivity analysis you experiment by changing a single features value while holding the other features constant and observe the model results.
@@ -94,6 +95,8 @@ Adversarial examples are specialized inputs created with the purpose of confusin
 - https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/generative/adversarial_fgsm.ipynbhttps://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/generative/adversarial_fgsm.ipynb
 
 # Residual Analysis
+- Residual analysis is a subset of a larger class of approaches to prevent social discrimination and other problems that ML production systems usually face.
+- to perform residual analysis post deployment, You will need to implement an infrastructure to label new data as it reaches your production system.
 - Diff between model predictions and ground truth
 - it requires having ground truth values for comparison, which can be difficult in many online or real time scenarios.
 - you want the residuals to follow a random distribution. If you find correlation between residuals, it's usually a sign that your model can be improved.
@@ -134,8 +137,9 @@ You need to make sure that your model is not causing harm to the people who use 
 - "Fairness indicators" scales
 - Has been built on top of the TensorFlow Model Analysis framework. 
 - It's important to remember that human societies are extremely complex. Understanding people and their social identities, social structures, and cultural systems are each huge fields of open research. 
-- ay special attention to slices of data that deal with sensitive characteristics such as race, ethnicity, gender, nationality, incomes, sexual orientation, and disability status.
-
+- Pay special attention to slices of data that deal with sensitive characteristics such as race, ethnicity, gender, nationality, incomes, sexual orientation, and disability status.
+    - slicing helps reduce the batch size over which you compute performance, it biases the sample towards your selection criteria.
+    - 
 ## Measuring Fairness
 - +/- Rates
   - These metrics help with understanding demographic parody, the equality of outcomes, which should be equal across subgroups. 
@@ -162,3 +166,5 @@ IMPORTANT: Fairness evaluations aren't meant to replace adversarial testing, but
 - https://github.com/AustinRochford/PyCEbox
 - you can also compare model performance across subgroups to a baseline or to other models.
 - Fairness indicators is primarily a tool for measuring fairness, not for doing remediation to improve fairness.
+- https://github.com/GoogleCloudPlatform/training-data-analyst
+- https://pair-code.github.io/what-if-tool/
