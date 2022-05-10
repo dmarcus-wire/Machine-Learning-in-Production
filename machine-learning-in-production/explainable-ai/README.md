@@ -173,4 +173,4 @@ XRAI or eXplanation with Ranked Area Integrals is specifically focused towards i
 8. https://arxiv.org/abs/1905.04610
 9. https://arxiv.org/pdf/1711.11279.pdf
 10. https://github.com/marcotcr/lime
-11. 
+11. https://storage.googleapis.com/cloud-ai-whitepapers/AI%20Explainability%20Whitepaper.pdf
