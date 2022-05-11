@@ -19,7 +19,7 @@ These components are used by an inference process which is aimed at getting the 
       1. After deployment, the model remains constant until it is retrained
          1. a while in operation to an offline-trained model dealing with new real-live data will get stale
             1. Monitoring will watch the model for Decay or staleness to guide improvements
-   2. Onine "or dynamic learning"
+   2. Online "or dynamic learning"
       1. After deployment, the model is regularly trained as new data arrives, data streams. Common for time series, sensor or stock data.
 2. Model Prediction
    1. Batch predictions
@@ -52,7 +52,6 @@ These components are used by an inference process which is aimed at getting the 
 3. and perhaps even exploring optimizing your models
 
 # Serving Infrastructure
-
 - Model Complexity reasons
   - increase accuracy
   - more complex relationships
@@ -98,3 +97,71 @@ Whats the cost trade off between applying a large number of less powerful accele
       - Amazon's DynamoDB is also a good choice
 
 Adding caches speeds up feature, look up while reducing prediction retrieval latency. You have to carefully choose from the different available offerings based on your requirements and then balance that with your budget constraints.
+
+# Where do you deploy models?
+
+1. Huge data centers
+   1. access model via remote call / REST API
+   2. It might not be feasible to deploy a model to a server in environments where prediction latency is super-important or when a network connection may not always be available.
+   3. where prediction latency will not work (e.g. autonomous cars)
+   4. the system is able to take actions based on predictions made in near real-time, and it can't wait for a server round-trip
+   5. Latency might not be as important where it's critical that the model is as accurate as possible, for example, a disease diagnosis. 
+2. Embedded devices (mobile phone, etc.)
+   1. access model locally on device where the system can take actions near real time
+   2. large complex models cannot be deployed to edge devices
+      1. average GPU is < 4GB
+      2. average 1x-GPU shared by other apps
+      3. use for accelerated process will drain battery quickly
+      4. average android app storage < 11MB
+      5. Exmaple:
+         1. MobileNet - designed for mobile devices computer vision
+            1. Now they may not have the highest number of predictive classes, and they may not be state of the art in recognition. But all of the work in performing trade-offs for the best mobile model had been done for you already and you can build on this.
+
+# Edge 
+
+## Improving Prediction Latency and Reducing Resource Costs
+1. Profile and Benchmark
+   1. The TensorFlow Lite benchmarking tool has a built-in profiler that can then show you per operator profiling statistics.
+   2. This can help with understanding performance bottlenecks and identifying which operators dominate the compute time.
+2. Optimize Operators
+   1. model optimization, which aims to create smaller models that are generally faster and more energy-efficient. This is especially important for deployments on mobile devices.
+3. Optimize Model 
+   1. techniques such as quantization
+4. Tweak Threads
+   1. You can also increase the number of interpreter threads to speed up the execution of apps
+      1. However, increasing the number of threads will also make your model use more resources and power. 
+      2. Multi-threaded execution, however, also results and increased performance variability depending on what else is running concurrently, and this is particularly the case for mobile apps.
+
+
+If you go the other route and deploy a model to a server, there are of course, also some considerations in how you design it. 
+The users of your model need a way to make requests, and often this is through a web application. 
+
+# Model Web API
+The model is wrapped as an API service in this approach, and most serving infrastructures and languages have web frameworks that can help you to achieve this.
+1. For example, Flask is a very popular Python web framework that it's very easy to roll out and API in Flask. 
+   1. If you're familiar with it, you can create a new web client in maybe 10 minutes. 
+2. Django is also a very powerful web framework for Python. 
+3. Similarly, Java also has many options like Apache Tomcat spraying, et cetera. 
+
+# Model Cloud/Server
+1. For example, creating the server and managing it to serve prediction requests from clients. 
+   1. They eliminate the need for putting models into custom web applications. 
+   2. With only a few lines of code, you can generally deploy models. 
+   3. They also make it easy to update a rollback models, load, and unload models on demand or when resources are required, and manage multiple versions of models. 
+   4. Clipper is a popular open-source model server developed at the UC Berkeley Rise Lab. 
+      1. Clipper helps you deploy a wide range of models built in frameworks like Cafe, TensorFlow, and Scikit-learn. Its overall aim is to be model agnostic.
+      2. Clipper includes a standard rest interface, so this makes it easy for you to integrate with production applications. 
+      3. Clipper wraps your models in Docker containers if you want, for cluster and resource management. 
+      4. It also helps you set service level objectives for reliable latencies. 
+   5. TensorFlow Serving is also an open-source model server, which offers a flexible high-performance serving system for machine learning models designed for production environments. 
+      1. TensorFlow Serving makes it easy to deploy new algorithms in experiments while keeping the same server architecture and APIs.
+      2. TensorFlow Serving provides out of the box integration with TensorFlow models, but it can also be extended to serve other types of models and data. 
+      3. TensorFlow Serving offers both the REST and gRPC protocols, 
+         1. gRPC is often more efficient than REST. 
+      4. TensorFlow Serving has demonstrated performance of up to 100,000 requests per second per core, making it a very powerful tool for serving machine learning applications. 
+      5. It has a version manager that can easily load and rollback different versions of the same model and it allows clients to select which version to use for each request.
+   6. a managed service to serve your models.
+      1. Google Cloud AI Platform Prediction Service as an example. 
+      2. It allows you to set up real-time endpoints which offer low latency predictions, and you can also use it to get predictions on batches of data
+      3. It also allows you to deploy models that have been trained either on Google Cloud or of course, on your own premises. 
+      4. You can scale automatically based on your traffic, which can save you a whole lot of costs, while at the same time giving you that high degree of scalability.
