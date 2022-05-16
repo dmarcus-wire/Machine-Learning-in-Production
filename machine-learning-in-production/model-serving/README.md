@@ -69,7 +69,7 @@ Model optimizing metrics
 2. precision
 3. recall
 
-Statisficing (Gating) metric
+Satisficing (Gating) metric
 1. latency
 2. models size
 3. GPU load
