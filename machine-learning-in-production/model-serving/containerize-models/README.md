@@ -42,4 +42,4 @@ Example,
       3. Red Hat Quay 
       4. Google Container Registry 
       5. Amazon Elastic Container Registry
-
+   
