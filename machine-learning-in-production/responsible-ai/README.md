@@ -99,3 +99,40 @@ Secure Multi-Party Computation, or SMPC, or Fully Homomorphic Encryption, or FHE
 ## So what part of your data should you anonymized?
 - basically everything that is part of PI that includes any data that reveals the identity of a person which are known as identifiers and with the term identifiers.
   - any natural or legal person living or dead including their dependents, their ascendance and descendants. This also includes other related persons who might be identifiable through either direct or indirect relationships. For example, this includes features such as family names, patron names first names, maiden names, aliases, address phone, bank account details, credit cards, tax IEDs and so forth.
+
+# Right to be forgotten
+When the GDPR refers to a data subject, it means a person, and when it refers to a controller, it means a person or organization who has control over a dataset containing Personally Identifiable Information or PII. 
+
+## When does a person have the right to be forgotten? 
+- The list includes the personal data is no longer necessary for the purpose an organization originally collected it or processed it,
+- or an organization is relying on individual's consent as the lawful basis for processing the data and that individual withdraws their consent,
+- or an organization is relying on legitimate interests as its justification for processing an individual's data and the individual objects to this processing, and there is no overriding legitimate interest for the organization to continue with the processing,
+- or an organization is processing personal data for direct marketing purposes and the individual objects to this processing
+- or an organization processed an individual's personal data unlawfully
+- or an organization must erase personal data in order to comply with a legal ruling or obligation
+- or an organization has processed a child's personal data to offer them information society services an information society might be a social network, for example.
+If any of those conditions are met, you must delete the person's data. 
+
+Here are the reasons cited in the GDPR that override the right to be forgotten
+- The data is being used to exercise the right of freedom of expression and information
+- or the data is being used to comply was a legal ruling or obligation
+- or the data is being used to perform a task that is being carried out in the public interest or when exercising an organization's official authority
+- or the data being processed is necessary for public health purposes and serves in the public interest
+- or the data being processed is necessary to perform a preventative or occupational medicine, this only applies when the data is being processed by a health professional who is subject to a legal obligation of professional secrecy
+- or the data represents important information that serves the public interest, scientific research, historical research, or statistical purposes where the eraser of the data would be likely to impair or halt progress towards the achievement that was the goal of the processing
+- or the data is being used for the establishment of a legal defense or in the exercise of other legal claims
+When in doubt err on the side of privacy.
+
+- You also have the right to have your personal information corrected or rectified. This might be important in situations like your credit history, health history, or employment history.
+
+When you receive a valid request to have personal information deleted, you need to identify all of the information related to the content requested to be removed, you also need to identify and remove all of the metadata associated with that person. If you've run any analysis or trained any models, the derived data and logs, and models must also be removed or corrected.
+
+There are basically two ways to delete data which will satisfy the requirements of the GDPR
+1. First, you can anonymize the data, which as you saw previously, will make it non personally identifiable under the terms of the GDPR, and the GDPR will no longer apply to anonymize data.
+2. you can do a hard delete of the data, meaning actually delete the data, including any rows in your database which might contain it.
+
+Normally, your first impulse might be to always just do a hard delete, but often there are issues with that. Anonymization is another option. In a database or any other similar relational datastore, deleting records can cause havoc. 
+For example, it can break foreign keys. On the other hand, anonymization keeps the records and only anonymizes the fields containing PII while still satisfying the requirements of the GDPR. 
+
+
+ in order to enforce the GDPR, several organizational changes are needed, including policy changes and training employees in how to enforce the right to be forgotten, and one last consideration, that can be tricky; if your organization maintains multiple backups of your data, which actually you should, making sure that your personal data has been deleted from all of your backups is challenging. You might very well have to change your data storage and backup implementation to maintain compliance with a GDPR.
