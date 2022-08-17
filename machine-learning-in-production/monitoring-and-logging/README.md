@@ -1,5 +1,7 @@
 # Intersection of Machine Learning an DevOps
 
+"Once you have deployed your machine learning model to production it rapidly becomes apparent that the work is not over."
+
 An ounce of prevention is worth a pound of cure - Benjamin Franklin
 
 ![](mlops-lifecycle.png)
