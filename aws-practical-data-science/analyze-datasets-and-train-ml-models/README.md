@@ -1,10 +1,13 @@
 # Definitions
 
+![AI, ML, DL, DS](ai_ml_dl_ds.png)
 - Artifical Intelligence- machine mimic human behavior
 - Machine Learning - static methods or algorithms that are able to learn from data
 - Deep Learning - uses artificial neural networks to learn from data
-- Data science - touches all fields: business, domain knowledge, mathematics, statistics, visualizaitons and programming
-- Practical data science - deals with massive datasets, using tools to extract features, knowledge distillation and gaining insights from data
+- Data science -Data science truly is an interdisciplinary field that combines business and domain knowledge with mathematics, statistics, data visualization, and programming skills
+- Practical data science - Practical data science helps you to improve your data science and machine learning skills, work with almost any amount of data, and implement their use cases in the most efficient way. It's different from working on a local development environment, such as your laptop, with small curated datasets. Practical data science is geared towards handling massive datasets, that could originate from social media channels, mobile and web applications, public or company internal data sources, and much more, depending on the use case you're working on.
+
+
 
 ## Limitations
 - local notebook/prototype by local hardware
@@ -16,7 +19,7 @@
 - agility and elasticity
 - scale up (CPU >> GPU), scale out (single >> multi-workers in seconds)
 - elastic infrastructure
-- storre and process any amount of data
+- store and process any amount of data
 - large data science and ML toolbox
 
 ## DS and ML toolbox
@@ -79,6 +82,8 @@ And, with a data lake in place, you can now use this centralized data repository
 - Connect pandas DF and AWS services
 - load / unload data from lakes, warehouses, dbs
 
+[AWS SDK for Pandas](https://aws-sdk-pandas.readthedocs.io/en/2.19.0/about.html)
+
 ## Glue Data Catalog
 ![](glue-data.png)
 - register or catalog data in S3
@@ -89,6 +94,8 @@ And, with a data lake in place, you can now use this centralized data repository
 - S3-to-table mapping
 - only contains metadata  /  schema
 - NO DATA IS MOVED FROM S3
+
+[AWS Glue](https://aws.amazon.com/glue/)
 
 ### Glue crawler
 - run on a schedule
@@ -105,4 +112,18 @@ And, with a data lake in place, you can now use this centralized data repository
 - scale automatically
 - splits automatically
 - Lookup in data catalog
+- 
+[Athena](https://aws.amazon.com/athena/)
+
+# Data Visualization
+
+1. Pandas - data analysis and manipulation
+2. NumPy - scientific computing in python
+3. matplotlib - static animated and interactive visualizations
+4. seaborn -  based on matplotlib and adds statistics visualizations
+
+## Reason
+![](sql_query.png)
+![](histogram_sample.png)
+Better understand data characteristics. Often SQL Queries.
 
